@@ -1,0 +1,44 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: radial-gradient(circle, #700, #111);
+  color: #fff;
+  text-align: center;
+}
+
+.header {
+  background: #c70101;
+  padding: 2rem;
+}
+
+.navbar {
+  background: #111;
+  padding: 1rem;
+}
+.navbar a {
+  color: #fff;
+  margin: 0 1rem;
+  text-decoration: none;
+  font-weight: bold;
+}
+.navbar a:hover {
+  color: #ffcc00;
+}
+
+.main {
+  padding: 3rem;
+}
+.card {
+  background: rgba(255,255,255,0.05);
+  padding: 2rem;
+  border-radius: 10px;
+  display: inline-block;
+}
+ul {
+  list-style: none;
+  padding: 0;
+}
+li {
+  margin: 1rem 0;
+  font-size: 1.2rem;
+}

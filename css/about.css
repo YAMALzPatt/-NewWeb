@@ -1,0 +1,106 @@
+/* RESET */
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: "Segoe UI", Arial, sans-serif; }
+
+body {
+  background: linear-gradient(135deg, #740000, #000, #111);
+  color: #fff;
+  overflow-x: hidden;
+  padding-bottom: 80px;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+body.page-loaded { opacity: 1; }
+
+/* Back Button */
+.back-btn {
+  position: fixed;
+  top: 20px; left: 20px;
+  text-decoration: none;
+  font-size: 1.2rem;
+  color: #fff;
+  background: rgba(0,0,0,0.7);
+  padding: 8px 14px;
+  border-radius: 8px;
+  z-index: 999;
+  transition: 0.3s;
+}
+.back-btn:hover { background: #ff3333; }
+
+/* Hero */
+.hero {
+  min-height: 40vh;
+  display: flex; justify-content: center; align-items: center;
+  text-align: center;
+  background: rgba(255, 0, 0, 0.1);
+  border-bottom: 2px solid rgba(255,255,255,0.1);
+}
+
+.hero-inner h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+  color: #ff4444;
+}
+.hero-inner p { font-size: 1.2rem; color: #ddd; }
+
+/* About Blocks (Timeline Style) */
+.about-main {
+  max-width: 1000px;
+  margin: 60px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+
+.about-block {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+.about-block.reverse { flex-direction: row-reverse; }
+
+.about-block img {
+  width: 300px;
+  border-radius: 20px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.5);
+}
+.about-block .text { flex: 1; min-width: 280px; }
+.about-block .text h2 { font-size: 1.8rem; margin-bottom: 15px; color: #ff3333; }
+.about-block .text p { line-height: 1.7; font-size: 1.05rem; }
+
+/* Floating Background Decorations */
+.circle {
+  position: fixed;
+  border-radius: 50%;
+  background: rgba(255,0,0,0.15);
+  z-index: -1;
+  animation: float 12s infinite ease-in-out;
+}
+.c1 { width: 120px; height: 120px; top: 20%; left: 15%; }
+.c2 { width: 200px; height: 200px; bottom: 15%; right: 10%; animation-delay: 3s; }
+.c3 { width: 80px; height: 80px; bottom: 30%; left: 50%; animation-delay: 6s; }
+
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-40px); }
+  100% { transform: translateY(0); }
+}
+/* Animation: Reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Page transition */
+body {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+body.page-loaded {
+  opacity: 1;
+}

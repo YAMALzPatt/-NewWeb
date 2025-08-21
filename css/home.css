@@ -1,0 +1,330 @@
+/* Scroll Reveal */
+.show {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+/* Particle Effect */
+.particle {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: radial-gradient(circle, #ffcc00, #c70101);
+  border-radius: 50%;
+  opacity: 0.7;
+  animation: floatUp linear infinite;
+}
+@keyframes floatUp {
+  from { transform: translateY(0); opacity: 0.7; }
+  to { transform: translateY(-100vh); opacity: 0; }
+}
+
+/* Ripple Effect */
+.ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.6);
+  transform: scale(0);
+  animation: ripple-effect 0.6s linear;
+  pointer-events: none;
+  width: 100px;
+  height: 100px;
+  opacity: 0.8;
+}
+@keyframes ripple-effect {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+a, button {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Page Transition (fade in/out) */
+.transition-layer {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: #c70101;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+.transition-layer.active {
+  opacity: 1;
+}
+
+/* Fade In when entering page */
+body {
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+body.page-loaded {
+  opacity: 1;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", sans-serif;
+  color: #fff;
+  text-align: center;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* พื้นหลังเคลื่อนไหว */
+.bg {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: linear-gradient(-45deg, #111, #600, #c70101, #111);
+  background-size: 400% 400%;
+  animation: gradientMove 15s ease infinite;
+  z-index: -1;
+}
+@keyframes gradientMove {
+  0% {background-position: 0% 50%;}
+  50% {background-position: 100% 50%;}
+  100% {background-position: 0% 50%;}
+}
+
+.header {
+  padding: 2rem 1rem 1rem;
+}
+.header h1 {
+  font-size: 2.2rem;
+  color: #ffcc00;
+}
+.header p {
+  font-size: 1.1rem;
+  color: #ddd;
+}
+
+/* navbar */
+.navbar {
+  margin: 1rem 0;
+  background: rgba(0,0,0,0.6);
+  padding: 0.8rem 1.2rem;
+  border-radius: 50px;
+  display: inline-block;
+}
+.navbar a {
+  color: #fff;
+  margin: 0 1rem;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+}
+.navbar a:hover {
+  color: #ffcc00;
+}
+
+/* Intro */
+.intro {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  margin: 3rem auto;
+  max-width: 900px;
+}
+.profile-pic {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #ffcc00;
+  box-shadow: 0 0 20px rgba(255,204,0,0.6);
+}
+.intro-text {
+  max-width: 500px;
+  text-align: left;
+}
+.intro-text h2 {
+  margin-bottom: 0.5rem;
+  color: #ffcc00;
+}
+.intro-text p {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+.btn {
+  display: inline-block;
+  background: #c70101;
+  color: #fff;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+.btn:hover {
+  background: #ffcc00;
+  color: #000;
+}
+
+/* Quote */
+.quote {
+  margin: 4rem auto;
+  max-width: 700px;
+  padding: 2rem;
+}
+.quote h2 {
+  font-size: 1.8rem;
+  color: #ffcc00;
+  margin-bottom: 0.5rem;
+}
+
+/* Interests cards */
+.interests {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-bottom: 4rem;
+}
+.interests .card {
+  background: rgba(0,0,0,0.7);
+  padding: 1.5rem;
+  border-radius: 15px;
+  width: 220px;
+  box-shadow: 0 0 15px rgba(199,1,1,0.6);
+  transition: 0.3s;
+}
+.interests .card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 25px rgba(255,204,0,0.7);
+}
+.interests h3 {
+  margin-bottom: 0.5rem;
+  color: #ffcc00;
+}
+
+/* Animations */
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 1.5s forwards;
+}
+.fade-in.delay { animation-delay: 0.5s; }
+.fade-in.delay2 { animation-delay: 1s; }
+@keyframes fadeIn {
+  to {opacity: 1;}
+}
+.slide-up {
+  opacity: 0;
+  transform: translateY(40px);
+  animation: slideUp 1.5s forwards 1.2s;
+}
+@keyframes slideUp {
+  to {opacity: 1; transform: translateY(0);}
+}
+/* Scroll Reveal */
+.show {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+/* Particle Effect */
+.particle {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: radial-gradient(circle, #ffcc00, #c70101);
+  border-radius: 50%;
+  opacity: 0.7;
+  animation: floatUp linear infinite;
+}
+@keyframes floatUp {
+  from { transform: translateY(0); opacity: 0.7; }
+  to { transform: translateY(-100vh); opacity: 0; }
+}
+/* Scroll Reveal */
+.show {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+/* Particle Effect */
+.particle {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: radial-gradient(circle, #ffcc00, #c70101);
+  border-radius: 50%;
+  opacity: 0.7;
+  animation: floatUp linear infinite;
+}
+@keyframes floatUp {
+  from { transform: translateY(0); opacity: 0.7; }
+  to { transform: translateY(-100vh); opacity: 0; }
+}
+
+/* Ripple Effect */
+.ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.6);
+  transform: scale(0);
+  animation: ripple-effect 0.6s linear;
+  pointer-events: none;
+  width: 100px;
+  height: 100px;
+  opacity: 0.8;
+}
+@keyframes ripple-effect {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+a, button {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Page Transition (fade in/out) */
+.transition-layer {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: #c70101;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+.transition-layer.active {
+  opacity: 1;
+}
+
+/* Fade In when entering page */
+body {
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+body.page-loaded {
+  opacity: 1;
+}
+/* Animation: Reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Page transition */
+body {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+body.page-loaded {
+  opacity: 1;
+}
+
