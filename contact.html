@@ -3,30 +3,60 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact</title>
+  <title>Contact - Liverpool Profile</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- Custom CSS -->
   <link rel="stylesheet" href="css/contact.css">
 </head>
 <body>
-  <header class="header">
-    <h1>Contact</h1>
+  <div class="bg"></div>
+
+  <!-- Header -->
+  <header class="header fade-in">
+    <h1>ติดต่อผม 📩</h1>
+    <p>ติดตามหรือทักมาได้ที่นี่</p>
   </header>
 
-  <nav class="navbar">
+  <!-- Navbar -->
+  <nav class="navbar fade-in delay">
     <a href="home.html">Home</a>
     <a href="about.html">About</a>
     <a href="favorite.html">Favorite</a>
     <a href="picture.html">My Picture</a>
-    <a href="contact.html">Contact</a>
+    <a href="contact.html" class="active">Contact</a>
   </nav>
 
-  <main class="main">
-    <section class="card">
-      <h2>ติดต่อฉัน</h2>
-      <p>Email: example@mail.com<br>Line: 012-345-6789</p>
-      <button class="btn" onclick="copyEmail()">Copy Email</button>
+  <!-- Main -->
+  <main class="contact-container fade-in delay2">
+
+    <!-- Social Icons -->
+    <div class="social-icons">
+      <a href="https://www.facebook.com" target="_blank" class="icon fb"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://www.instagram.com" target="_blank" class="icon ig"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.youtube.com" target="_blank" class="icon yt"><i class="fab fa-youtube"></i></a>
+    </div>
+
+    <!-- Contact Form -->
+    <section class="form-section fade-in">
+      <h2>ส่งข้อความถึงผม ✍️</h2>
+      <form class="contact-form">
+        <input type="text" placeholder="ชื่อของคุณ" required>
+        <input type="email" placeholder="อีเมลของคุณ" required>
+        <textarea rows="5" placeholder="ข้อความของคุณ..." required></textarea>
+        <button type="submit"><i class="fas fa-paper-plane"></i> ส่งข้อความ</button>
+      </form>
+      <button onclick="copyEmail()" class="btn-copy"><i class="fas fa-envelope"></i> คัดลอก Email</button>
     </section>
+
   </main>
 
+  <!-- Custom JS -->
   <script src="main.js"></script>
 </body>
 </html>

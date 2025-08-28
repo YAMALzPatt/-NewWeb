@@ -1,22 +1,31 @@
+// -----------------------------
+// Copy Email
+// -----------------------------
 function copyEmail() {
   navigator.clipboard.writeText("example@mail.com").then(() => {
     alert("คัดลอก Email แล้ว!");
   });
 }
+
 // -----------------------------
-// Fade In when entering page
+// Fade In & Page Loaded
 // -----------------------------
 window.addEventListener("load", () => {
   document.body.classList.add("page-loaded");
+  typeHeaderEffect();
+  createParticles();
 });
 
 // -----------------------------
-// Typing Effect (ข้อความ header)
+// Typing Effect (Header)
 // -----------------------------
-const headerElement = document.querySelector(".header h1");
-if (headerElement) {
+function typeHeaderEffect() {
+  const headerElement = document.querySelector(".header h1");
+  if (!headerElement) return;
+
   const headerText = "สวัสดีครับ 👋 ยินดีต้อนรับ!";
   let i = 0;
+  headerElement.textContent = "";
 
   function typeEffect() {
     if (i < headerText.length) {
@@ -26,31 +35,35 @@ if (headerElement) {
     }
   }
 
-  headerElement.textContent = "";
-  window.addEventListener("load", typeEffect);
+  typeEffect();
 }
 
 // -----------------------------
 // Scroll Reveal
 // -----------------------------
-const revealElements = document.querySelectorAll(".slide-up, .fade-in");
-window.addEventListener("scroll", () => {
+function scrollReveal() {
+  const revealElements = document.querySelectorAll(".slide-up, .fade-in, .reveal");
   const triggerBottom = window.innerHeight * 0.85;
+
   revealElements.forEach(el => {
     const boxTop = el.getBoundingClientRect().top;
     if (boxTop < triggerBottom) {
-      el.classList.add("show");
+      el.classList.add("show", "active");
     }
   });
-});
+}
+window.addEventListener("scroll", scrollReveal);
+document.addEventListener("DOMContentLoaded", scrollReveal);
 
 // -----------------------------
 // Particle Background
 // -----------------------------
-const bg = document.querySelector(".bg");
-if (bg) {
+function createParticles() {
+  const bg = document.querySelector(".bg");
+  if (!bg) return;
+
   for (let i = 0; i < 25; i++) {
-    let span = document.createElement("span");
+    const span = document.createElement("span");
     span.className = "particle";
     span.style.left = Math.random() * 100 + "vw";
     span.style.top = Math.random() * 100 + "vh";
@@ -71,7 +84,6 @@ document.querySelectorAll("a, button").forEach(el => {
     ripple.style.left = e.clientX - rect.left + "px";
     ripple.style.top = e.clientY - rect.top + "px";
     el.appendChild(ripple);
-
     setTimeout(() => ripple.remove(), 600);
   });
 });
@@ -79,14 +91,13 @@ document.querySelectorAll("a, button").forEach(el => {
 // -----------------------------
 // Page Transition Effect
 // -----------------------------
-const links = document.querySelectorAll("a[href]");
 const transitionLayer = document.createElement("div");
 transitionLayer.className = "transition-layer";
 document.body.appendChild(transitionLayer);
 
-links.forEach(link => {
+document.querySelectorAll("a[href]").forEach(link => {
   link.addEventListener("click", function(e) {
-    if (link.hostname === window.location.hostname) {
+    if (link.hostname === window.location.hostname && !link.href.startsWith("#") && !link.href.startsWith("mailto:")) {
       e.preventDefault();
       transitionLayer.classList.add("active");
       setTimeout(() => {
@@ -95,45 +106,11 @@ links.forEach(link => {
     }
   });
 });
-// Animate on Scroll
+
+// -----------------------------
+// Hover Effect (ข้อความ/ลิงก์)
+// -----------------------------
 document.addEventListener("DOMContentLoaded", () => {
-  const elements = document.querySelectorAll(".reveal");
-
-  const revealOnScroll = () => {
-    const windowHeight = window.innerHeight;
-    elements.forEach(el => {
-      const position = el.getBoundingClientRect().top;
-      if (position < windowHeight - 100) {
-        el.classList.add("active");
-      }
-    });
-  };
-
-  window.addEventListener("scroll", revealOnScroll);
-  revealOnScroll(); // run on load
-});
-
-// Smooth Page Fade Transition
-document.addEventListener("DOMContentLoaded", () => {
-  document.body.classList.add("page-loaded");
-
-  const links = document.querySelectorAll("a");
-  links.forEach(link => {
-    link.addEventListener("click", e => {
-      const href = link.getAttribute("href");
-      if (href && !href.startsWith("#") && !href.startsWith("mailto:")) {
-        e.preventDefault();
-        document.body.classList.remove("page-loaded");
-        setTimeout(() => {
-          window.location.href = href;
-        }, 500);
-      }
-    });
-  });
-});
-
-document.addEventListener("DOMContentLoaded", () => {
-  // 🌟 Hover effect สำหรับทุกข้อความ
   document.querySelectorAll("h1, h2, p, a").forEach(el => {
     el.addEventListener("mouseover", () => {
       el.style.transition = "color 0.3s, text-shadow 0.3s";
@@ -146,15 +123,17 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // 🟥 Modal system
+  // -----------------------------
+  // Modal system
+  // -----------------------------
   const cards = document.querySelectorAll(".card");
-  const modals = document.querySelectorAll(".modal");
   const closes = document.querySelectorAll(".close");
 
   cards.forEach(card => {
     card.addEventListener("click", () => {
       const modalId = card.getAttribute("data-modal");
-      document.getElementById(modalId).style.display = "flex";
+      const modal = document.getElementById(modalId);
+      if (modal) modal.style.display = "flex";
     });
   });
 
@@ -164,7 +143,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // ปิด modal ถ้าคลิกนอกกล่อง
   window.addEventListener("click", (e) => {
     if (e.target.classList.contains("modal")) {
       e.target.style.display = "none";

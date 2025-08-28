@@ -172,3 +172,79 @@ footer {
   background: #e00034;
   transform: scale(1.05);
 }
+/* -----------------------------
+   Responsive Design
+----------------------------- */
+
+/* Desktop / Large Screens */
+@media (min-width: 1200px) {
+  header h1 {
+    font-size: 2.8rem;
+  }
+  .card img {
+    height: 220px;
+  }
+  .modal-content {
+    max-width: 550px;
+  }
+}
+
+/* Tablet */
+@media (max-width: 992px) {
+  header h1 {
+    font-size: 2.2rem;
+  }
+  .favorites-grid {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    padding: 20px;
+  }
+  .card img {
+    height: 180px;
+  }
+  .modal-content {
+    max-width: 450px;
+    padding: 20px;
+  }
+  .more-btn, .back-btn {
+    padding: 10px 18px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 576px) {
+  header h1 {
+    font-size: 1.8rem;
+  }
+  .favorites-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+    padding: 15px;
+  }
+  .card img {
+    height: 150px;
+  }
+  .card h2 {
+    font-size: 1.1rem;
+  }
+  .card p {
+    font-size: 0.9rem;
+  }
+  .modal-content {
+    max-width: 90%;
+    padding: 15px;
+  }
+  .modal-content h2 {
+    font-size: 1.3rem;
+  }
+  .modal-content p {
+    font-size: 0.9rem;
+  }
+  .more-btn, .back-btn {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+  }
+  .close {
+    font-size: 1.5rem;
+  }
+}
