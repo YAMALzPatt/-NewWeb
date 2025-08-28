@@ -1,71 +1,4 @@
-/* Scroll Reveal */
-.show {
-  opacity: 1 !important;
-  transform: translateY(0) !important;
-}
-
-/* Particle Effect */
-.particle {
-  position: absolute;
-  width: 8px;
-  height: 8px;
-  background: radial-gradient(circle, #ffcc00, #c70101);
-  border-radius: 50%;
-  opacity: 0.7;
-  animation: floatUp linear infinite;
-}
-@keyframes floatUp {
-  from { transform: translateY(0); opacity: 0.7; }
-  to { transform: translateY(-100vh); opacity: 0; }
-}
-
-/* Ripple Effect */
-.ripple {
-  position: absolute;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.6);
-  transform: scale(0);
-  animation: ripple-effect 0.6s linear;
-  pointer-events: none;
-  width: 100px;
-  height: 100px;
-  opacity: 0.8;
-}
-@keyframes ripple-effect {
-  to {
-    transform: scale(4);
-    opacity: 0;
-  }
-}
-a, button {
-  position: relative;
-  overflow: hidden;
-}
-
-/* Page Transition (fade in/out) */
-.transition-layer {
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: #c70101;
-  z-index: 9999;
-  pointer-events: none;
-  opacity: 0;
-  transition: opacity 0.5s ease;
-}
-.transition-layer.active {
-  opacity: 1;
-}
-
-/* Fade In when entering page */
-body {
-  opacity: 0;
-  transition: opacity 0.8s ease;
-}
-body.page-loaded {
-  opacity: 1;
-}
-
+/* ============ Base Style ============ */
 body {
   margin: 0;
   font-family: "Segoe UI", sans-serif;
@@ -73,9 +6,14 @@ body {
   text-align: center;
   overflow-x: hidden;
   min-height: 100vh;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+body.page-loaded {
+  opacity: 1;
 }
 
-/* พื้นหลังเคลื่อนไหว */
+/* Background */
 .bg {
   position: fixed;
   top: 0; left: 0;
@@ -91,6 +29,7 @@ body {
   100% {background-position: 0% 50%;}
 }
 
+/* Header */
 .header {
   padding: 2rem 1rem 1rem;
 }
@@ -103,9 +42,9 @@ body {
   color: #ddd;
 }
 
-/* navbar */
+/* Navbar */
 .navbar {
-  margin: 1rem 0;
+  margin: 1rem auto;
   background: rgba(0,0,0,0.6);
   padding: 0.8rem 1.2rem;
   border-radius: 50px;
@@ -178,7 +117,7 @@ body {
   margin-bottom: 0.5rem;
 }
 
-/* Interests cards */
+/* Interests */
 .interests {
   display: flex;
   justify-content: center;
@@ -203,49 +142,13 @@ body {
   color: #ffcc00;
 }
 
-/* Animations */
-.fade-in {
-  opacity: 0;
-  animation: fadeIn 1.5s forwards;
-}
-.fade-in.delay { animation-delay: 0.5s; }
-.fade-in.delay2 { animation-delay: 1s; }
-@keyframes fadeIn {
-  to {opacity: 1;}
-}
-.slide-up {
-  opacity: 0;
-  transform: translateY(40px);
-  animation: slideUp 1.5s forwards 1.2s;
-}
-@keyframes slideUp {
-  to {opacity: 1; transform: translateY(0);}
-}
-/* Scroll Reveal */
-.show {
-  opacity: 1 !important;
-  transform: translateY(0) !important;
-}
-
-/* Particle Effect */
-.particle {
-  position: absolute;
-  width: 8px;
-  height: 8px;
-  background: radial-gradient(circle, #ffcc00, #c70101);
-  border-radius: 50%;
-  opacity: 0.7;
-  animation: floatUp linear infinite;
-}
-@keyframes floatUp {
-  from { transform: translateY(0); opacity: 0.7; }
-  to { transform: translateY(-100vh); opacity: 0; }
-}
-/* Scroll Reveal */
-.show {
-  opacity: 1 !important;
-  transform: translateY(0) !important;
-}
+/* ============ Animations ============ */
+.fade-in {opacity: 0; animation: fadeIn 1.5s forwards;}
+.fade-in.delay {animation-delay: 0.5s;}
+.fade-in.delay2 {animation-delay: 1s;}
+@keyframes fadeIn {to {opacity: 1;}}
+.slide-up {opacity: 0; transform: translateY(40px); animation: slideUp 1.5s forwards 1.2s;}
+@keyframes slideUp {to {opacity: 1; transform: translateY(0);}}
 
 /* Particle Effect */
 .particle {
@@ -275,17 +178,11 @@ body {
   opacity: 0.8;
 }
 @keyframes ripple-effect {
-  to {
-    transform: scale(4);
-    opacity: 0;
-  }
+  to {transform: scale(4); opacity: 0;}
 }
-a, button {
-  position: relative;
-  overflow: hidden;
-}
+a, button {position: relative; overflow: hidden;}
 
-/* Page Transition (fade in/out) */
+/* Page Transition */
 .transition-layer {
   position: fixed;
   top: 0; left: 0;
@@ -296,35 +193,26 @@ a, button {
   opacity: 0;
   transition: opacity 0.5s ease;
 }
-.transition-layer.active {
-  opacity: 1;
+.transition-layer.active {opacity: 1;}
+
+/* ============ Responsive Design ============ */
+
+/* Tablet */
+@media (max-width: 768px) {
+  .header h1 {font-size: 1.8rem;}
+  .intro {flex-direction: column; text-align: center;}
+  .intro-text {text-align: center;}
+  .navbar a {margin: 0 0.5rem;}
+  .interests .card {width: 180px;}
 }
 
-/* Fade In when entering page */
-body {
-  opacity: 0;
-  transition: opacity 0.8s ease;
+/* Mobile */
+@media (max-width: 480px) {
+  .header h1 {font-size: 1.5rem;}
+  .header p {font-size: 0.9rem;}
+  .navbar {display: flex; flex-wrap: wrap; gap: 0.5rem;}
+  .intro-text p {font-size: 0.9rem;}
+  .profile-pic {width: 140px; height: 140px;}
+  .interests {gap: 1rem;}
+  .interests .card {width: 100%; max-width: 300px;}
 }
-body.page-loaded {
-  opacity: 1;
-}
-/* Animation: Reveal */
-.reveal {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
-}
-.reveal.active {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Page transition */
-body {
-  opacity: 0;
-  transition: opacity 0.5s ease;
-}
-body.page-loaded {
-  opacity: 1;
-}
-

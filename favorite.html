@@ -1,33 +1,70 @@
 <!DOCTYPE html>
-<html lang="th">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Favorite</title>
+  <title>My Favorites - Liverpool Theme</title>
   <link rel="stylesheet" href="css/favorite.css">
+  <script src="main.js" defer></script>
 </head>
 <body>
-  <header class="header">
-    <h1>My Favorite</h1>
+  <header>
+    <h1>🔴 My Favorites ⚫</h1>
   </header>
 
-  <nav class="navbar">
-    <a href="home.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="favorite.html">Favorite</a>
-    <a href="picture.html">My Picture</a>
-    <a href="contact.html">Contact</a>
-  </nav>
+  <main class="favorites-grid">
+    <div class="card" data-modal="modal1">
+      <img src="liv.png" alt="Favorite 1">
+      <h2>ลิเวอร์พูล</h2>
+      <p>ทีมที่อยู่ในหัวใจและแรงบันดาลใจ"</p>
+    </div>
 
-  <main class="main">
-    <section class="card">
-      <h2>สิ่งที่ฉันชอบ</h2>
-      <ul>
-        <li>⚽ ลิเวอร์พูล</li>
-        <li>🎶 เพลง You'll Never Walk Alone</li>
-        <li>💻 การทำเว็บและดีไซน์</li>
-      </ul>
-    </section>
+    <div class="card" data-modal="modal2">
+      <img src="football.jpg" alt="Favorite 2">
+      <h2>ฟุตบอล</h2>
+      <p>"กีฬาที่เต็มไปด้วยพลังและมิตรภาพ"</p>
+    </div>
+
+    <div class="card" data-modal="modal3">
+      <img src="playgame.jpg" alt="Favorite 3">
+      <h2>เล่นเกม</h2>
+      <p>"โลกแห่งการผจญภัยและความสนุก"</p>
+    </div>
   </main>
+
+  <!-- 🔹 Modals -->
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <img src="liv.png" alt="Favorite 1">
+      <h2>Favorite 1</h2>
+      <p>"ลิเวอร์พูลคือทีมฟุตบอลที่ฉันรักที่สุด พลัง ความมุ่งมั่น และเพลง You'll Never Walk Alone ทำให้หัวใจเต้นแรงทุกครั้งที่เชียร์"</p>
+      <a href="#" class="more-btn">ดูเพิ่มเติม</a>
+    </div>
+  </div>
+
+  <div id="modal2" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <img src="football.jpg" alt="Favorite 2">
+      <h2>Favorite 2</h2>
+      <p>"ฟุตบอลไม่ใช่แค่กีฬา แต่คือความสนุก ความท้าทาย และมิตรภาพที่เกิดขึ้นในทุก ๆ จังหวะของเกม"</p>
+      <a href="#" class="more-btn">ดูเพิ่มเติม</a>
+    </div>
+  </div>
+
+  <div id="modal3" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <img src="playgame.jpg" alt="Favorite 3">
+      <h2>Favorite 3</h2>
+      <p>"การเล่นเกมคือการผจญภัยที่ไม่มีที่สิ้นสุด สนุกกับการสร้างสรรค์ ท้าทาย และการได้เจอเพื่อนใหม่ ๆ ในโลกเสมือนจริง"</p>
+      <a href="#" class="more-btn">ดูเพิ่มเติม</a>
+    </div>
+  </div>
+
+  <footer>
+    <a href="home.html" class="back-btn">⬅ กลับหน้า Home</a>
+  </footer>
 </body>
 </html>

@@ -132,3 +132,42 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+document.addEventListener("DOMContentLoaded", () => {
+  // 🌟 Hover effect สำหรับทุกข้อความ
+  document.querySelectorAll("h1, h2, p, a").forEach(el => {
+    el.addEventListener("mouseover", () => {
+      el.style.transition = "color 0.3s, text-shadow 0.3s";
+      el.style.color = "#c8102e";
+      el.style.textShadow = "0 0 10px rgba(200,16,46,0.7)";
+    });
+    el.addEventListener("mouseout", () => {
+      el.style.color = "";
+      el.style.textShadow = "";
+    });
+  });
+
+  // 🟥 Modal system
+  const cards = document.querySelectorAll(".card");
+  const modals = document.querySelectorAll(".modal");
+  const closes = document.querySelectorAll(".close");
+
+  cards.forEach(card => {
+    card.addEventListener("click", () => {
+      const modalId = card.getAttribute("data-modal");
+      document.getElementById(modalId).style.display = "flex";
+    });
+  });
+
+  closes.forEach(btn => {
+    btn.addEventListener("click", () => {
+      btn.closest(".modal").style.display = "none";
+    });
+  });
+
+  // ปิด modal ถ้าคลิกนอกกล่อง
+  window.addEventListener("click", (e) => {
+    if (e.target.classList.contains("modal")) {
+      e.target.style.display = "none";
+    }
+  });
+});
