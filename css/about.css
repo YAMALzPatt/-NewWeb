@@ -1,6 +1,16 @@
-/* RESET */
-* { margin: 0; padding: 0; box-sizing: border-box; font-family: "Segoe UI", Arial, sans-serif; }
+/* -----------------------------
+   RESET
+----------------------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Arial, sans-serif;
+}
 
+/* -----------------------------
+   Global Styles
+----------------------------- */
 body {
   background: linear-gradient(135deg, #740000, #000, #111);
   color: #fff;
@@ -11,10 +21,13 @@ body {
 }
 body.page-loaded { opacity: 1; }
 
-/* Back Button */
+/* -----------------------------
+   Back Button
+----------------------------- */
 .back-btn {
   position: fixed;
-  top: 20px; left: 20px;
+  top: 20px;
+  left: 20px;
   text-decoration: none;
   font-size: 1.2rem;
   color: #fff;
@@ -26,15 +39,18 @@ body.page-loaded { opacity: 1; }
 }
 .back-btn:hover { background: #ff3333; }
 
-/* Hero */
+/* -----------------------------
+   Hero Section
+----------------------------- */
 .hero {
   min-height: 40vh;
-  display: flex; justify-content: center; align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-align: center;
   background: rgba(255, 0, 0, 0.1);
   border-bottom: 2px solid rgba(255,255,255,0.1);
 }
-
 .hero-inner h1 {
   font-size: 3rem;
   margin-bottom: 10px;
@@ -42,7 +58,9 @@ body.page-loaded { opacity: 1; }
 }
 .hero-inner p { font-size: 1.2rem; color: #ddd; }
 
-/* About Blocks (Timeline Style) */
+/* -----------------------------
+   About Blocks
+----------------------------- */
 .about-main {
   max-width: 1000px;
   margin: 60px auto;
@@ -53,11 +71,11 @@ body.page-loaded { opacity: 1; }
 
 .about-block {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 40px;
   flex-wrap: wrap;
+  flex-direction: row; /* รูปอยู่ด้านหน้า */
 }
-.about-block.reverse { flex-direction: row-reverse; }
 
 .about-block img {
   width: 300px;
@@ -65,10 +83,16 @@ body.page-loaded { opacity: 1; }
   box-shadow: 0 6px 20px rgba(0,0,0,0.5);
 }
 .about-block .text { flex: 1; min-width: 280px; }
-.about-block .text h2 { font-size: 1.8rem; margin-bottom: 15px; color: #ff3333; }
+.about-block .text h2 {
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+  color: #ff3333;
+}
 .about-block .text p { line-height: 1.7; font-size: 1.05rem; }
 
-/* Floating Background Decorations */
+/* -----------------------------
+   Floating Background Decorations
+----------------------------- */
 .circle {
   position: fixed;
   border-radius: 50%;
@@ -79,13 +103,15 @@ body.page-loaded { opacity: 1; }
 .c1 { width: 120px; height: 120px; top: 20%; left: 15%; }
 .c2 { width: 200px; height: 200px; bottom: 15%; right: 10%; animation-delay: 3s; }
 .c3 { width: 80px; height: 80px; bottom: 30%; left: 50%; animation-delay: 6s; }
-
 @keyframes float {
   0% { transform: translateY(0); }
   50% { transform: translateY(-40px); }
   100% { transform: translateY(0); }
 }
-/* Animation: Reveal */
+
+/* -----------------------------
+   Reveal Animation
+----------------------------- */
 .reveal {
   opacity: 0;
   transform: translateY(40px);
@@ -96,104 +122,39 @@ body.page-loaded { opacity: 1; }
   transform: translateY(0);
 }
 
-/* Page transition */
-body {
-  opacity: 0;
-  transition: opacity 0.5s ease;
-}
-body.page-loaded {
-  opacity: 1;
-}
 /* -----------------------------
    Responsive Design
 ----------------------------- */
 
 /* Desktop / Large Screens */
 @media (min-width: 1200px) {
-  .hero-inner h1 {
-    font-size: 3.5rem;
-  }
-  .hero-inner p {
-    font-size: 1.3rem;
-  }
-  .about-block img {
-    width: 350px;
-  }
-  .about-block .text h2 {
-    font-size: 2rem;
-  }
-  .about-block .text p {
-    font-size: 1.1rem;
-  }
+  .hero-inner h1 { font-size: 3.5rem; }
+  .hero-inner p { font-size: 1.3rem; }
+  .about-block img { width: 350px; }
+  .about-block .text h2 { font-size: 2rem; }
+  .about-block .text p { font-size: 1.1rem; }
 }
 
 /* Tablet */
 @media (max-width: 992px) {
-  .hero-inner h1 {
-    font-size: 2.5rem;
-  }
-  .hero-inner p {
-    font-size: 1.1rem;
-  }
-  .about-main {
-    gap: 40px;
-    margin: 50px 20px;
-  }
-  .about-block {
-    flex-direction: column;
-    gap: 25px;
-  }
-  .about-block.reverse {
-    flex-direction: column;
-  }
-  .about-block img {
-    width: 250px;
-  }
-  .about-block .text h2 {
-    font-size: 1.6rem;
-  }
-  .about-block .text p {
-    font-size: 1rem;
-  }
+  .hero-inner h1 { font-size: 2.5rem; }
+  .hero-inner p { font-size: 1.1rem; }
+  .about-main { gap: 40px; margin: 50px 20px; }
+  .about-block { flex-direction: row; gap: 25px; }
+  .about-block img { width: 250px; }
+  .about-block .text h2 { font-size: 1.6rem; }
+  .about-block .text p { font-size: 1rem; }
 }
 
 /* Mobile */
 @media (max-width: 576px) {
-  .hero-inner h1 {
-    font-size: 1.8rem;
-  }
-  .hero-inner p {
-    font-size: 0.95rem;
-  }
-  .about-main {
-    gap: 30px;
-    margin: 40px 15px;
-  }
-  .about-block {
-    flex-direction: column;
-    gap: 20px;
-  }
-  .about-block.reverse {
-    flex-direction: column;
-  }
-  .about-block img {
-    width: 100%;
-    max-width: 220px;
-    border-radius: 15px;
-  }
-  .about-block .text h2 {
-    font-size: 1.4rem;
-  }
-  .about-block .text p {
-    font-size: 0.95rem;
-  }
-  .back-btn {
-    font-size: 1rem;
-    padding: 6px 12px;
-    top: 15px;
-    left: 15px;
-  }
-  .circle {
-    display: none; /* ปิด floating background บนมือถือ */
-  }
+  .hero-inner h1 { font-size: 1.8rem; }
+  .hero-inner p { font-size: 0.95rem; }
+  .about-main { gap: 30px; margin: 40px 15px; }
+  .about-block { flex-direction: column; gap: 20px; } /* stack รูปบนข้อความ */
+  .about-block img { width: 100%; max-width: 220px; border-radius: 15px; }
+  .about-block .text h2 { font-size: 1.4rem; }
+  .about-block .text p { font-size: 0.95rem; }
+  .back-btn { font-size: 1rem; padding: 6px 12px; top: 15px; left: 15px; }
+  .circle { display: none; } /* ปิด floating background บนมือถือ */
 }
